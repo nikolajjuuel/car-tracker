@@ -63,6 +63,7 @@ export default function ModalCar(props: Props) {
         person_id,
       })
       .then(function (response) {
+        handleClose();
         props.reload();
         console.log("successfully updated car");
       })
@@ -70,8 +71,6 @@ export default function ModalCar(props: Props) {
         console.log(error);
         console.log("ERROR adding car PLS TRY AGAIN");
       });
-
-    handleClose();
   };
 
   const getKeyByValue = (obj: any, value: any) => {

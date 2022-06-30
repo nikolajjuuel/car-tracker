@@ -37,6 +37,7 @@ export default function ModalAddPerson(props: Props) {
         email,
       })
       .then(function (response) {
+        handleClose();
         setPersonState({ firstName: "", lastName: "", email: "" });
         props.reload();
       })

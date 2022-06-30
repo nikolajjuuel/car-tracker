@@ -37,6 +37,8 @@ export default function ModalPerson(props: Props) {
   };
 
   const handleUpdatePerson = (id: string) => {
+    handleClose();
+
     axios
       .put(`http://localhost:3000/people/${id}`, {
         firstName,
@@ -44,6 +46,7 @@ export default function ModalPerson(props: Props) {
         email,
       })
       .then(function (response) {
+        handleClose();
         props.reload();
         console.log("successfully updated person");
       })
@@ -51,8 +54,6 @@ export default function ModalPerson(props: Props) {
         console.log(error);
         console.log("ERROR adding car PLS TRY AGAIN");
       });
-
-    handleClose();
   };
 
   return (
